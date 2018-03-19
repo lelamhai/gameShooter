@@ -284,9 +284,12 @@
   <ItemGroup>
     <Compile Include="Assets\ChangeColor.cs" />
     <Compile Include="Assets\classA.cs" />
+    <Compile Include="Assets\ControlleLevelOne.cs" />
     <Compile Include="Assets\ControllerBullet.cs" />
+    <Compile Include="Assets\GameVariables.cs" />
     <Compile Include="Assets\handleGO.cs" />
     <Compile Include="Assets\Run.cs" />
+    <Compile Include="Assets\scriptlv1.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

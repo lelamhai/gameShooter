@@ -113,6 +113,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &428963671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 428963672}
+  - component: {fileID: 428963673}
+  m_Layer: 0
+  m_Name: listEnemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &428963672
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 428963671}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &428963673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 428963671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: defb1c2b311c7b744bb7f5e1b0ff76c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listLv1:
+  - {fileID: 21300000, guid: baa73cc9dcedf6f4d90a51a44b3a200c, type: 3}
+  Enemy1: {fileID: 1903461512688586, guid: 08ae11d1665db5248a9ffc6cf91c179f, type: 2}
+  listEnemy1: []
+  mainControll: {fileID: 1909483734}
 --- !u!1 &685479109
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +192,7 @@ MonoBehaviour:
   speed: 5
   start: {fileID: 1911470968}
   end: {fileID: 2094224091}
+  start1: {x: 0, y: 0, z: 0}
   ImageBG: {fileID: 21300000, guid: fe4c58d4f0b172745b1ab23c3a9f01f0, type: 3}
 --- !u!4 &685479111
 Transform:
@@ -473,6 +519,7 @@ MonoBehaviour:
   Flay: {fileID: 1741084894}
   speed: 0
   bullet: {fileID: 1499852979}
+  listBullet: []
 --- !u!81 &1909483735
 AudioListener:
   m_ObjectHideFlags: 0

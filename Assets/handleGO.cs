@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class handleGO : MonoBehaviour
 {
-
-
     public GameObject Bakground;
     public GameObject Flay;
     public float speed;
     public GameObject bullet;
-    List<GameObject> listBullet = new List<GameObject>();
+    public List<GameObject> listBullet = new List<GameObject>();
 
     private void Awake()
     {
+        GameVariables.InstanceH.Bullet = -1;
         for (int i = 0; i < 10; i++)
         {
             GameObject go = Instantiate(bullet, bullet.transform.position, Quaternion.identity);
+            go.AddComponent<BoxCollider2D>();
+            go.AddComponent<Rigidbody2D>();
             listBullet.Add(go);
         }
     }
@@ -25,7 +26,7 @@ public class handleGO : MonoBehaviour
     void Start()
     {
         speed = 5f;
-
+        GameVariables.InstanceH.coundBullet = listBullet.Count;
     }
 
     private void Update()
@@ -54,21 +55,40 @@ public class handleGO : MonoBehaviour
                 Flay.transform.position = new Vector3(Flay.transform.position.x + speed * Time.deltaTime, Flay.transform.position.y, Flay.transform.position.z);
             }
         }
-
+        UpdateBullet();
         Shoot();
     }
 
 
-
     private void Shoot()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!listBullet[0].GetComponent<ControllerBullet>().shot)
-            {
-                listBullet[0].GetComponent<ControllerBullet>().Shooter();
-            }
+            start = StartCoroutine(coroutineA());
         }
 
     }
+    public void UpdateBullet()
+    {
+        for (int i = listBullet.Count-1; i >= 0; i--)
+        {
+            if (!listBullet[i].GetComponent<ControllerBullet>().shot)
+            {
+                GameVariables.InstanceH.Bullet = i;
+            }
+        }
+    }
+    Coroutine start;
+    IEnumerator coroutineA()
+    {
+        GameVariables.InstanceH.Bullet++;
+        yield return new WaitForSeconds(0.1f);
+      
+        if (!listBullet[GameVariables.InstanceH.Bullet].GetComponent<ControllerBullet>().shot)
+        {
+            listBullet[GameVariables.InstanceH.Bullet].GetComponent<ControllerBullet>().Shooter();
+        }
+    }
+
+
 }

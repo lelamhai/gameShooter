@@ -8,7 +8,7 @@ public class Run : MonoBehaviour {
     public float speed;
     public Transform start;
     public Transform end;
-    Vector3 start1;
+    public Vector3 start1;
     Vector3 end2;
     public Sprite ImageBG;
 

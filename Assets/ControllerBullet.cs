@@ -20,8 +20,6 @@ public class ControllerBullet : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y + speed * Time.deltaTime, transform.position.z);
             stopBullet();
         }
-
-
     }
     public void Shooter()
     {
@@ -31,11 +29,16 @@ public class ControllerBullet : MonoBehaviour
     }
     void stopBullet()
     {
-        Vector3 start = r.Bakground.GetComponent<Run>().start.position;
+        Vector3 start = r.Bakground.GetComponent<Run>().start1;
         if (transform.position.y > start.y)
         {
             transform.position = startPos;
             shot = false;
+            GameVariables.InstanceH.Bullet--;
+
         }
     }
+
+
+
 }
